@@ -1,22 +1,27 @@
 # Eye-Blink-detection.
 Real time eye blink detection using face detector and facial landmarks from Dlib package. 
 
+## What is eye blink exactly, and why does this happen?‎
 
-What is eye blink exactly, and why does this happen?‎
-Eye blinking is a suppressed process that involves the rapid closure and reopening ‎of the eyelid. Multiple muscles are involved in the blinking of the eyes. The ‎orbicularis oculi and levator palpebrae superioris are the two primary muscles ‎that regulate eye closure and opening.‎
-Blinking serves some important purposes, one of which is to moisten the corner of ‎an individual’s eye. Additionally, it cleans the cornea of the eye when the ‎eyelashes are unable to catch all of the dust and debris that enter the eye. 
-Everyone must blink to spread tears over the entire surface of the eyeball, and 
-especially over the surface of the cornea. Blinking also performs as a reflex to ‎prevent foreign objects from entering the eye.‎
-How can we compute or detect eye blink? ‎
-Unlike traditional image processing methods for computing blinks ‎which ‎typically involve some combination of:‎
+Eye blinking is a suppressed process that involves the rapid closure and reopening ‎of the eyelid. Multiple muscles are involved in the blinking of the eyes. 
+The orbicularis oculi and levator palpebrae superioris are the two primary muscles ‎that regulate eye closure and opening.‎
+Blinking serves some important purposes, one of which is to moisten the corner of ‎an individual’s eye. 
+Additionally, it cleans the cornea of the eye when the ‎eyelashes are unable to catch all of the dust and debris that enter the eye. 
+Everyone must blink to spread tears over the entire surface of the eyeball, and especially over the surface of the cornea. Blinking also performs as a reflex to prevent foreign objects from entering the eye.‎
+
+## How can we compute or detect eye blink? 
+     Unlike traditional image processing methods for computing blinks ‎which ‎typically involve some combination of:‎
+
 •	Eye localization.‎
 •	Thresholding to find the whites of the eyes.‎
 •	Determining if the “white” region of the eyes disappears for a ‎period of ‎time (indicating a blink).‎
+
 This approach has a lot of limitations, and not efficient.  
 So, instead of this approach, to build our blink detector, we’ll be computing a ‎metric called the eye aspect ratio (EAR), introduced by Soukupová and Čech in ‎their 2016 paper, Real-Time Eye Blink Detection Using Facial Landmarks. 
 The EAR is instead a much more elegant solution that involves a very simple ‎calculation based on the ratio of distances between facial landmarks of the eyes. 
 This method for eye blink detection is fast, efficient, and easy to implement.‎
-Steps involved:‎
+
+### Steps involved:‎
 •	Face detection to localize the face in the image.‎
 Face detection is the first method that locates a human face and returns a ‎value in x, y, w, 1h (the face ROI) which is a rectangle.‎
 •	Detect the key facial landmark structures on the face ROI. 
@@ -26,7 +31,7 @@ The eyes are our region of interest.‎
 •	Calculate eye aspect ratio (EAR). 
 EAR is a scalar value that responds, especially for opening and closing eyes
 •	Threshold the EAR to determine if the person is blinking.‎
-‎ 
+ 
 A quick overview of the approach to identifying eye blink using this flow chart to ‎illustrate our approach.‎
 
  
@@ -35,7 +40,8 @@ A quick overview of the approach to identifying eye blink using this flow chart 
 
  
 
-We assume that we already have the trained face detector and face landmark ‎detector.‎ The EAR formula is as follows: ‎ ‎
+We assume that we already have the trained face detector and face landmark ‎detector.
+The EAR formula is as follows: 
  
 Where p1, …, p6 are 2D facial landmark locations. 
 This method uses just the EAR as the metric to determine if a person has ‎blinked ‎or not. 
@@ -64,7 +70,7 @@ Which serves as a very procedural point to distinguish between the normal and �
 Here we can look at pseudocode ‎to enhance understanding of our approach.‎
  
 
-The limitations of this approach.‎
+## The limitations of this approach.‎
 ‎1-‎	However, due to noise in the video stream, subpar facial landmark ‎detections, or fast changes in viewing angle, this approach could produce ‎false-positive detections, reporting that a blink has taken place when in ‎reality the person had not blinked.‎
 To make this system more robust, Soukupová and Čech recommened that:‎
 •	Computing the eye aspect ratio for the Nth frame, along with eye aspect ‎ratios ‎for N - 6 and N + 6 frames, then concatenating these eye aspect ratios ‎to ‎form a 13-dimensional feature vector.‎
@@ -84,7 +90,9 @@ The 68 coordinates’ indices Jaw Points = 0–16, Right Brow Points = 17–21, 
 shown in Fig. ‎
  
 
-The goal of facial landmark identification is to identify and track significant ‎landmarks on the face. Face tracking becomes strong for rigid facial deformation ‎and not stiff due to head movements and facial expressions. Furthermore, facial ‎landmarks were successfully applied to face alignment, head pose estimation, face ‎swapping…. ETC.‎
-What are Eye blink detections applications?‎
+### The goal of facial landmark identification 
+facial landmarks is to identify and track significant ‎landmarks on the face. Face tracking becomes strong for rigid facial deformation ‎and not stiff due to head movements and facial expressions. Furthermore, facial ‎landmarks were successfully applied to face alignment, head pose estimation, face ‎swapping…. ETC.‎
+
+## What are Eye blink detections applications?‎
 Eye blinks detection is essential and has been applied in different fields in ‎technology such as the intercommunication between disabled people and ‎computers (Królak & Strumiłło, 2012). Anther application is drowsiness ‎detection (Rahman, Sirshar & Khan, 2016), Fatima et al., 2020 research ‎proposed a low-cost solution for driver fatigue detection based on micro-sleep ‎patterns. 
 Based on driver’s facial expression to determine their state of drowsiness. an ‎alarm will sound if the eyes remain closed for a certain time. One more is anti-‎spoofing protection in face recognition systems (Pan et al., 2007), ……ETC.‎
