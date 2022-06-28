@@ -50,12 +50,12 @@ EAR is a scalar value that responds, especially for opening and closing eyes
  
 A quick overview with this psodocode of our approach approach to identifying eye blink using this flow chart to illustrate this approach.
 
-<img src= ![Algorithm-Eye-Blinking-Detection](https://user-images.githubusercontent.com/84151016/176217478-60936b52-7237-4cf2-9333-5e4678b34114.jpg) width=500, height=500>
+<img src= "https://user-images.githubusercontent.com/84151016/176217478-60936b52-7237-4cf2-9333-5e4678b34114.jpg" width=700, height=500>
 
 We assume that we already have the trained face detector and face landmark ‎detector.
 The EAR formula is as follows: 
 
-<img src= "https://user-images.githubusercontent.com/84151016/176219075-88b39950-a9bf-466a-ba22-b491687fd073.png" width=500, height= 500>
+<img src= "https://user-images.githubusercontent.com/84151016/176219075-88b39950-a9bf-466a-ba22-b491687fd073.png" width=700, height= 500>
 
           Where p1, …, p6 are 2D facial landmark locations. 
 
