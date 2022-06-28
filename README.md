@@ -55,7 +55,7 @@ A quick overview with this psodocode of our approach approach to identifying eye
 We assume that we already have the trained face detector and face landmark ‎detector.
 The EAR formula is as follows: 
 
-<img src= ![eye blink formula](https://user-images.githubusercontent.com/84151016/176219075-88b39950-a9bf-466a-ba22-b491687fd073.png) width=500, height= 500>
+<img src= "https://user-images.githubusercontent.com/84151016/176219075-88b39950-a9bf-466a-ba22-b491687fd073.png" width=500, height= 500>
 
           Where p1, …, p6 are 2D facial landmark locations. 
 
