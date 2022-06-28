@@ -23,7 +23,7 @@ Everyone must blink to spread tears over the entire surface of the eyeball, and 
           "We'll not take about it's limitations right now, But Briefly "ًwhat if a person is looking down to the keyboard ?! 
           With this approache we'll get alot of false-positive detections, and this is not accaptable, and does not make satisfication"  
 
-So, instead of this approach, to build our blink detector, we’ll compute a ***metric called the eye aspect ratio (EAR)***, introduced by ***Soukupová and Čech in their 2016 paper***, Real-Time Eye Blink Detection Using Facial Landmarks. 
+So, instead of this approach, to build our blink detector, we’ll compute a ***metric called the eye aspect ratio (EAR)***, introduced by ***Soukupová and Čech in their 2016 paper***, [Real-Time Eye Blink Detection Using Facial Landmarks](http://vision.fe.uni-lj.si/cvww2016/proceedings/papers/05.pdf). 
 The EAR is instead a much more elegant solution that involves a very simple calculation based on ***the ratio of distances between facial landmarks of the eyes***. 
 This method for eye blink detection is fast, efficient, and easy to implement.
 
@@ -127,3 +127,12 @@ Based on driver’s facial expression to determine their state of drowsiness. an
 
 ## Resources
 
+To build our blink detector, we’ll be computing a metric called the eye aspect ratio (EAR), introduced ‎by Soukupová and Čech in their 2016 paper, Real-Time Eye Blink Detection Using Facial Landmarks.‎
+Paper link: http://vision.fe.uni-lj.si/cvww2016/proceedings/papers/05.pdf
+https://pyimagesearch.com/2017/04/24/eye-blink-detection-opencv-python-dlib/‎
+https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9044337/#ref-37‎
+https://github.com/ChristineDewi/Blinks-Detection
+https://www.blinkingmatters.com/‎
+
+Dlib documentation
+OpenCV documentation
